@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 678, y: 492}
   m_MaxSize: {x: 14001, y: 14042}
   vertical: 0
-  controlID: 76
+  controlID: 41
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -151,7 +151,7 @@ MonoBehaviour:
     y: 0
     width: 3440
     height: 1357
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
   m_TopViewHeight: 30
@@ -227,7 +227,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 77
+  controlID: 42
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -252,7 +252,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 78
+  controlID: 43
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -408,36 +408,36 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/FreeAssets/Free Low Poly Desert Pack/FBX Files/Mixed Colors
+    - Assets/WaterIsAllICanSee/Materials/AssetMaterials
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/FreeAssets/Free Low Poly Desert Pack/FBX Files/Mixed Colors
+  - Assets/WaterIsAllICanSee/Materials/AssetMaterials
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Projekty\WaterIsAllICanSee\WaterIsAllICanSee
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 130}
-    m_SelectedIDs: 1e620000
-    m_LastClickedID: 25118
-    m_ExpandedIDs: 0000000046560000485600004a5600004c5600004e560000505600005256000054560000585600005c5600005e56000060560000c6560000d0560000d4560000d8560000da560000f45c0000f65c000040600000da660000f26e00000a71000000ca9a3b
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: dc630000
+    m_LastClickedID: 25564
+    m_ExpandedIDs: 0000000040570000425700004457000046570000485700004a5700004c570000505700005257000054570000585700005a5700006e5700007a5700007c570000da63000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: ModularFirstPersonController
-      m_OriginalName: ModularFirstPersonController
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 22230
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 5}
     m_SearchString: 
@@ -451,7 +451,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000046560000485600004a5600004c5600004e56000050560000525600005456000056560000585600005a5600005c5600005e5600006056000062560000
+    m_ExpandedIDs: 0000000040570000425700004457000046570000485700004a5700004c5700004e57000050570000525700005457000056570000585700005a570000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -572,9 +572,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: dc630000
       m_LastClickedID: 0
-      m_ExpandedIDs: eab4ffffaac2ffff4cfbffff365400004a540000605400004c6f0000
+      m_ExpandedIDs: 2ed9fffff2f8ffff8cf9ffff36fbffff4cfbffff1854000022540000465400006454000082540000a0540000e0540000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -634,9 +634,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -6.8170195, y: -2.5577831, z: -62.898026}
+    m_Target: {x: -27.254917, y: 4.9351735, z: -58.55878}
     speed: 2
-    m_Value: {x: -6.8170195, y: -2.5577831, z: -62.898026}
+    m_Value: {x: -27.254917, y: 4.9351735, z: -58.55878}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -683,13 +683,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.06664059, y: -0.27127317, z: 0.018867653, w: 0.9600814}
+    m_Target: {x: 0.083975226, y: 0.48519707, z: -0.046871427, w: 0.869202}
     speed: 2
-    m_Value: {x: 0.06663585, y: -0.27125385, z: 0.01886631, w: 0.9600131}
+    m_Value: {x: 0.08396779, y: 0.4851541, z: -0.046867277, w: 0.869125}
   m_Size:
-    m_Target: 10
+    m_Target: 2.2774997
     speed: 2
-    m_Value: 10
+    m_Value: 2.2774997
   m_Ortho:
     m_Target: 0
     speed: 2
