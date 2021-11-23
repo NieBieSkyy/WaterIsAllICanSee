@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 3440
     height: 1357
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Project
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 229
+  controlID: 17
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -228,7 +228,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 230
+  controlID: 18
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -253,7 +253,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 231
+  controlID: 19
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -434,22 +434,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/WaterIsAllICanSee/Scripts
+    - Assets/wHDRPAssets/SampleSceneAssets/Materials/General
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/WaterIsAllICanSee/Scripts
+  - Assets/wHDRPAssets/SampleSceneAssets/Materials/General
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Projekty\WaterIsAllICanSee\WaterIsAllICanSee
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 5e520000
-    m_LastClickedID: 21086
-    m_ExpandedIDs: 000000004c5200005a52000000ca9a3b
+    scrollPos: {x: 0, y: 51}
+    m_SelectedIDs: 50580000
+    m_LastClickedID: 22608
+    m_ExpandedIDs: 000000008057000098570000a8570000aa5700000a58000012580000165800003c58000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -477,7 +477,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000004c52000000ca9a3b
+    m_ExpandedIDs: 000000008057000082570000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -598,9 +598,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 50580000
       m_LastClickedID: 0
-      m_ExpandedIDs: 68c8ffff
+      m_ExpandedIDs: 0efbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -711,11 +711,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: -0.23615943, y: 0.45469975, z: -0.12785591, w: -0.8495099}
     speed: 2
-    m_Value: {x: -0.23628746, y: 0.4533032, z: -0.12746729, w: -0.8499626}
+    m_Value: {x: -0.23615941, y: 0.45469975, z: -0.12785591, w: -0.8495099}
   m_Size:
     m_Target: 7.1749983
     speed: 2
-    m_Value: 3.3487046
+    m_Value: 7.1749983
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -788,8 +788,8 @@ MonoBehaviour:
     vZoomLockedByDefault: 0
     m_HBaseRangeMin: -1133
     m_HBaseRangeMax: 1133
-    m_VBaseRangeMin: -445.5
-    m_VBaseRangeMax: 445.5
+    m_VBaseRangeMin: -456
+    m_VBaseRangeMax: 456
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -806,11 +806,11 @@ MonoBehaviour:
     m_DrawArea:
       serializedVersion: 2
       x: 0
-      y: 21
+      y: 0
       width: 2266
-      height: 891
+      height: 912
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 1133, y: 445.5}
+    m_Translation: {x: 1133, y: 456}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
@@ -818,9 +818,9 @@ MonoBehaviour:
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
       x: -1133
-      y: -445.5
+      y: -456
       width: 2266
-      height: 891
+      height: 912
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_LastWindowPixelSize: {x: 2266, y: 912}
