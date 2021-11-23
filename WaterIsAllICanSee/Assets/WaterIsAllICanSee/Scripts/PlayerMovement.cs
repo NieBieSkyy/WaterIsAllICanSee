@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
-#if ENABLE_INPUT_SYSTEM
+if ENABLE_INPUT_SYSTEM
     InputAction movement;
     InputAction jump;
 
@@ -55,12 +55,12 @@ public class PlayerMovement : MonoBehaviour
         float z;
         bool jumpPressed = false;
 
-#if ENABLE_INPUT_SYSTEM
+if ENABLE_INPUT_SYSTEM
         var delta = movement.ReadValue<Vector2>();
         x = delta.x;
         z = delta.y;
         jumpPressed = Mathf.Approximately(jump.ReadValue<float>(), 1);
-#else
+else
         x = Input.GetAxis("Horizontal");
         z = Input.GetAxis("Vertical");
         jumpPressed = Input.GetButtonDown("Jump");
