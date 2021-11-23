@@ -8,37 +8,52 @@ public class Jiba : MonoBehaviour
     [SerializeField] Transform waterLevel;
     [SerializeField] Transform depthLevel;
     [SerializeField] Transform mainTarget;
+    [SerializeField] Vector3 startingPosition;
 
-    [SerializeField] float yPosition1;
+    [SerializeField] float yPositionTarget;
+    [SerializeField] float progress;
     [SerializeField] Vector3 target;
 
     void Start()
     {
+        progress = 0;
         target = mainTarget.transform.position;
-        yPosition1 = Random.Range(depthLevel.transform.position.y, waterLevel.transform.position.y);
+        yPositionTarget = Random.Range(depthLevel.transform.position.y, waterLevel.transform.position.y);
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Move();
+        MovingOnY();
     }
-    
-    private void Move()
+
+    private void MovingOnY()
     {
-        target.y = yPosition1;
-        jiba.transform.position = Vector3.MoveTowards(jiba.transform.position, target, 1 * Time.deltaTime);
-        
-
-        if (jiba.transform.position.y == target.y)
+        if (transform.position.y == yPositionTarget)
         {
-            target = mainTarget.transform.position;
-            yPosition1 = Random.Range(depthLevel.transform.position.y, waterLevel.transform.position.y);
-            target.y = yPosition1;
-
+            startingPosition = transform.position;
+            FindNewTarget();
+            progress = 0;
         }
-        
+        transform.localPosition = new Vector3(0, YTargetPosition(), 0);
     }
 
+    private void FindNewTarget()
+    {
+        yPositionTarget = Random.Range(depthLevel.transform.position.y, waterLevel.transform.position.y);
+    }
+
+    private float YTargetPosition()
+    {  
+        if (progress >= 1)
+        {
+            progress += 0.001f;
+        }
+        return Mathf.Lerp(startingPosition.y, yPositionTarget, progress);
+    }
+
+    private float MovementSpeed()
+    {
+        return Mathf.Abs(((yPositionTarget - transform.position.y) / 10));
+    }
 }
