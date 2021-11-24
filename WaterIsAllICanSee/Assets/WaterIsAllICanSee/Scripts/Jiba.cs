@@ -4,56 +4,51 @@ using UnityEngine;
 
 public class Jiba : MonoBehaviour
 {
+    [Header("Starting Objects")]
     [SerializeField] GameObject jiba;
-    [SerializeField] Transform waterLevel;
-    [SerializeField] Transform depthLevel;
-    [SerializeField] Transform mainTarget;
-    [SerializeField] Vector3 startingPosition;
+    [Tooltip("Don't worry, it should disappear")] [SerializeField] GameObject mainTarget;
 
-    [SerializeField] float yPositionTarget;
-    [SerializeField] float progress;
-    [SerializeField] Vector3 target;
+    [Header("X Axis")]
+    [SerializeField] float minX;
+    [SerializeField] float maxX;
 
-    void Start()
+    [Header("Y Axis")]
+    [Tooltip("Just a max Y value")] [SerializeField] Transform waterLevel;
+    [Tooltip("Just a min Y value")] [SerializeField] Transform depthLevel;
+
+    [Header("Z Axis")]
+    [SerializeField] float minZ;
+    [SerializeField] float maxZ;
+
+    [Header("Parameters")]
+    [Tooltip("Really?")] [SerializeField] float jibaSpeed;
+
+    private GameObject target;
+
+    private void Start()
     {
-        progress = 0;
-        target = mainTarget.transform.position;
-        yPositionTarget = Random.Range(depthLevel.transform.position.y, waterLevel.transform.position.y);
-        
+        target = mainTarget;
     }
 
     void Update()
     {
-        MovingOnY();
-    }
-
-    private void MovingOnY()
-    {
-        if (transform.position.y == yPositionTarget)
+        jiba.transform.position = Vector3.MoveTowards(jiba.transform.position, target.transform.position, jibaSpeed * Time.deltaTime);
+        if (Mathf.Round(transform.position.y) == Mathf.Round(target.transform.position.y))
         {
-            startingPosition = transform.position;
-            FindNewTarget();
-            progress = 0;
+            
+            GameObject newTarget = Instantiate(target, FindNewTarget(), Quaternion.identity);
+            Destroy(target);
+            newTarget.name = "Target, BITCH";
+            target = newTarget;
         }
-        transform.localPosition = new Vector3(0, YTargetPosition(), 0);
     }
 
-    private void FindNewTarget()
+    private Vector3 FindNewTarget()
     {
-        yPositionTarget = Random.Range(depthLevel.transform.position.y, waterLevel.transform.position.y);
-    }
+        float xPositionTarget = Random.Range(minX, maxX);
+        float yPositionTarget = Random.Range(depthLevel.transform.position.y, waterLevel.transform.position.y);
+        float zPositionTarget = Random.Range(minZ, maxZ);
 
-    private float YTargetPosition()
-    {  
-        if (progress >= 1)
-        {
-            progress += 0.001f;
-        }
-        return Mathf.Lerp(startingPosition.y, yPositionTarget, progress);
-    }
-
-    private float MovementSpeed()
-    {
-        return Mathf.Abs(((yPositionTarget - transform.position.y) / 10));
+        return new Vector3(xPositionTarget, yPositionTarget, zPositionTarget);
     }
 }
