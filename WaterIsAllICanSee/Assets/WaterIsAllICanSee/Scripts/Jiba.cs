@@ -33,6 +33,8 @@ public class Jiba : MonoBehaviour
     void Update()
     {
         jiba.transform.position = Vector3.MoveTowards(jiba.transform.position, target.transform.position, jibaSpeed * Time.deltaTime);
+        jiba.transform.LookAt(target.transform.position);
+
         if (Mathf.Round(transform.position.y) == Mathf.Round(target.transform.position.y))
         {
             
