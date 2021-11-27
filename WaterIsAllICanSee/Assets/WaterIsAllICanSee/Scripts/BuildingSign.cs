@@ -6,106 +6,140 @@ public class BuildingSign : MonoBehaviour
 {
     [Header("Cameras")]
     [SerializeField] Camera mainCamera;
-    [SerializeField] Camera[] cameras;
+    [SerializeField] Camera secondCamera;
 
-    [Header("Building Menu etc")]
+    [Header("Put here all types")]
+    [SerializeField] GameObject[] buildingTypes;
+
+    [Header("This pretty important canvas here")]
     [SerializeField] GameObject buildingMenu;
 
+    [Header("IDK but important af")]
+    [SerializeField] int buildingIndex;
 
-    GameObject building;
     bool buildingMenuOpen;
-    [SerializeField] int cameraIndex;
 
-
-    void Start()
+    private void Start()
     {
         mainCamera = Camera.main;
-        buildingMenu.SetActive(false);
-        cameraIndex = 0;
-        foreach (Camera camera in cameras)
-        {
-            camera.gameObject.SetActive(false);
-        }    
-    }
+        secondCamera.gameObject.SetActive(false);
 
-    private void Update()
-    {
-        if (buildingMenuOpen)
+        buildingMenu.SetActive(false);
+        buildingIndex = 0;
+
+        foreach (GameObject buildingType in buildingTypes)
         {
-            foreach (Camera camera in cameras)
-            {
-                camera.gameObject.SetActive(false);
-            }
-            cameras[cameraIndex].gameObject.SetActive(true);
-            if (Input.GetKeyDown("escape"))
-            {
-                CloseBuildingMenu();
-            }
+            buildingType.gameObject.SetActive(false);
         }
-        
     }
 
     private void OnMouseDown()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit))
+        if (mainCamera.isActiveAndEnabled == true)
         {
-            if (hit.transform.name == "Building Sign")
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
             {
-                OpenBuildingMenu();
+                if (hit.transform.name == "Building Sign")
+                {
+                    Collider[] colliders = Physics.OverlapSphere(transform.position, 5);
+                    foreach (Collider collider in colliders)
+                    {
+                        if (collider.CompareTag("Player"))
+                        {
+                            OpenBuildingMenu();
+                        }
+                    }
+                }
             }
-        }
+        }  
     }
 
     private void OpenBuildingMenu()
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+
         buildingMenu.SetActive(true);
         buildingMenuOpen = true;
+
         mainCamera.gameObject.SetActive(false);
-        cameras[cameraIndex].gameObject.SetActive(true);
+        secondCamera.gameObject.SetActive(true);
+
+    }
+
+    private void Update()
+    {
+        if (buildingMenuOpen)
+        {
+            foreach (GameObject buildingType in buildingTypes)
+            {
+                buildingType.gameObject.SetActive(false);
+            }
+            buildingTypes[buildingIndex].gameObject.SetActive(true);
+            if (Input.GetKeyDown("e"))
+            {
+                CloseBuildingMenu();
+            } 
+        }
     }
 
     private void CloseBuildingMenu()
     {
         mainCamera.gameObject.SetActive(true);
-        cameras[cameraIndex].gameObject.SetActive(false);
+        secondCamera.gameObject.SetActive(false);
+
+        buildingIndex = 0;
+
+        buildingTypes[buildingIndex].gameObject.SetActive(false);
+        buildingMenu.SetActive(false);
         buildingMenuOpen = false;
+
         Cursor.visible = false;
+    }
+
+    public void Build()
+    {
+        GameObject chosenObject = Instantiate(buildingTypes[buildingIndex],
+            buildingTypes[buildingIndex].transform.position,
+            buildingTypes[buildingIndex].transform.rotation);
+
+        chosenObject.name = "The Chosen One";
+
+        foreach (GameObject type in buildingTypes)
+        {
+            Destroy(type.gameObject);
+        }
+        CloseBuildingMenu();
+        this.gameObject.SetActive(false);
     }
 
     public void IncreaseCameraIndex()
     {
-        if (cameraIndex == cameras.Length - 1)
+        if (buildingIndex == buildingTypes.Length - 1)
         {
-            cameraIndex = 0;
+            buildingIndex = 0;
         }
         else
         {
-            cameraIndex += 1;
+            buildingIndex += 1;
         }
     }
 
     public void DecreaseCameraIndex()
     {
-        if (cameraIndex == 0)
+        if (buildingIndex == 0)
         {
-            cameraIndex = cameras.Length - 1;
+            buildingIndex = buildingTypes.Length - 1;
         }
         else
         {
-            cameraIndex -= 1;
+            buildingIndex -= 1;
         }
     }
 
-    public void BuildSth()
-    {
-        building = Camera.current.transform.parent.gameObject;
-    }
 
-//zrób listê z budynkami a nie z kamerami - lepszy pomys³ i mo¿esz je potem dodaæ, wtedy ³atwiej itd
+    //zrób listê z budynkami a nie z kamerami - lepszy pomys³ i mo¿esz je potem dodaæ, wtedy ³atwiej itd
 
 }
