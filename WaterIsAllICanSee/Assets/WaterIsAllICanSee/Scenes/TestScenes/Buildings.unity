@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 950736732}
   - component: {fileID: 950736731}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Crosshair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -524,6 +524,7 @@ MonoBehaviour:
   secondCamera: {fileID: 0}
   buildingTypes: []
   buildingMenu: {fileID: 0}
+  crosshair: {fileID: 0}
   buildingIndex: 0
 --- !u!1001 &1368842207
 PrefabInstance:
@@ -898,6 +899,23 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 738646681595172699, guid: 573ac53c334415945bf239de2c2f0511, type: 3}
   m_PrefabInstance: {fileID: 1368842207}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2020368774 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 738646681744756154, guid: 573ac53c334415945bf239de2c2f0511, type: 3}
+  m_PrefabInstance: {fileID: 1368842207}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2020368779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020368774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d599e41ccd853f40b2b0f6949d12d84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5071611293170806761
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -905,6 +923,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5071611293346888634, guid: 974423c1539dc29429e898a5f84f83e3, type: 3}
+      propertyPath: crosshair
+      value: 
+      objectReference: {fileID: 950736730}
     - target: {fileID: 5071611293346888634, guid: 974423c1539dc29429e898a5f84f83e3, type: 3}
       propertyPath: mainCamera
       value: 

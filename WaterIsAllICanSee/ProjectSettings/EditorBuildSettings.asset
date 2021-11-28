@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/WaterIsAllICanSee/Scenes/GameScenes/CreditsScene.unity
     guid: d6a8f52ddbcdb1d4c950d0f2e1032ad7
+  - enabled: 1
+    path: Assets/WaterIsAllICanSee/Scenes/TestScenes/SampleScene1.unity
+    guid: b03dc8ac2871d3f458e28cb960b99d9f
   m_configObjects: {}

@@ -37,15 +37,13 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadPlay()
     {
-        SceneManager.LoadScene("PlayScene");
+        SceneManager.LoadScene("SampleScene1");
     }
 
     public void LoadNextScene()
     {
         SceneManager.LoadScene(currentSceneIndex + 1);
     }
-
-    
 
     public void QuitGame()
     {
@@ -55,9 +53,12 @@ public class LevelLoader : MonoBehaviour
     IEnumerator LoadLoadingScene()
     {
         yield return new WaitForSeconds(timeToLoadLoading);
+        LoadNextScene();
     }
+
     IEnumerator LoadMenuScene()
     {
         yield return new WaitForSeconds(timeToLoadMenu);
+        LoadNextScene();
     }
 }

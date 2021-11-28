@@ -280,13 +280,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 738646681744756155}
   speed: 5
-  gravity: -10
-  jumpHeight: 2
+  gravity: -25
+  jumpHeight: 1.5
   groundCheck: {fileID: 738646681763345176}
   groundDistance: 0.4
   groundMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
 --- !u!136 &3194102702577883234
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -11,12 +11,17 @@ public class PlayerMovement : MonoBehaviour
 
     public CharacterController controller;
 
+    [Header("Movement Parameters")]
     public float speed = 12f;
+
+    [Header("Jump Parameters")]
     public float gravity = -10f;
     public float jumpHeight = 2f;
 
+    [Header("Ground Things")]
     public Transform groundCheck;
     public float groundDistance = 0.4f;
+    [Tooltip("You have to put here what the ground layerMask is")]
     public LayerMask groundMask;
     
 

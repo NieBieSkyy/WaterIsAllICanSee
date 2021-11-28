@@ -13,6 +13,7 @@ public class BuildingSign : MonoBehaviour
 
     [Header("This pretty important canvas here")]
     [SerializeField] GameObject buildingMenu;
+    [SerializeField] GameObject crosshair;
 
     [Header("IDK but important af")]
     [SerializeField] int buildingIndex;
@@ -61,8 +62,13 @@ public class BuildingSign : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
 
+        this.gameObject.GetComponent<MeshRenderer>().enabled = false;
         buildingMenu.SetActive(true);
         buildingMenuOpen = true;
+        if (crosshair != null)
+        {
+            crosshair.SetActive(false);
+        }
 
         mainCamera.gameObject.SetActive(false);
         secondCamera.gameObject.SetActive(true);
@@ -92,9 +98,17 @@ public class BuildingSign : MonoBehaviour
 
         buildingIndex = 0;
 
-        buildingTypes[buildingIndex].gameObject.SetActive(false);
+        this.gameObject.GetComponent<MeshRenderer>().enabled = true;
         buildingMenu.SetActive(false);
         buildingMenuOpen = false;
+        foreach (GameObject buildingType in buildingTypes)
+        {
+            buildingType.gameObject.SetActive(false);
+        }
+        if (crosshair != null)
+        {
+            crosshair.SetActive(true);
+        }
 
         Cursor.visible = false;
     }
@@ -138,8 +152,5 @@ public class BuildingSign : MonoBehaviour
             buildingIndex -= 1;
         }
     }
-
-
-    //zrób listê z budynkami a nie z kamerami - lepszy pomys³ i mo¿esz je potem dodaæ, wtedy ³atwiej itd
 
 }
