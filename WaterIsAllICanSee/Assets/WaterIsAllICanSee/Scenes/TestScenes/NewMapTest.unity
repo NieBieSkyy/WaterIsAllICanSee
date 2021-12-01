@@ -245,7 +245,7 @@ MonoBehaviour:
     distanceFadeStart: 763.52
     distanceFadeEnd: 763.52
     textureIndex: 0
-    textureOffset: {x: -0, y: -0, z: 0}
+    textureOffset: {x: -0, y: -0.055462826, z: 0}
 --- !u!4 &28597925
 Transform:
   m_ObjectHideFlags: 0
@@ -1470,7 +1470,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &631221564
 Transform:
   m_ObjectHideFlags: 0
@@ -1922,8 +1922,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 710680035}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.365, y: -0.07096404, z: 0.89}
+  m_LocalRotation: {x: 0.14394915, y: -0.69229954, z: 0.14394915, w: 0.69229954}
+  m_LocalPosition: {x: 0.2807006, y: -0.07518309, z: 0.8060217}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 332270136}
@@ -1932,7 +1932,7 @@ Transform:
   - {fileID: 771269962}
   m_Father: {fileID: 329709336}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 23.492, y: -90, z: 0}
 --- !u!1 &771269961
 GameObject:
   m_ObjectHideFlags: 0
@@ -3591,7 +3591,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 738646681595172699, guid: 573ac53c334415945bf239de2c2f0511, type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 4294967295
+      value: 823
       objectReference: {fileID: 0}
     - target: {fileID: 738646681595172700, guid: 573ac53c334415945bf239de2c2f0511, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4202,8 +4202,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1876222570}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.365, y: -0.07096404, z: 0.89}
+  m_LocalRotation: {x: 0.14394915, y: -0.69229954, z: 0.14394915, w: 0.69229954}
+  m_LocalPosition: {x: 0.2807006, y: -0.07518309, z: 0.8060217}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 329203901}
@@ -4212,7 +4212,7 @@ Transform:
   - {fileID: 4208563658931761}
   m_Father: {fileID: 329709336}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 23.492, y: -90, z: 0}
 --- !u!4 &1879045741 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3241959397565510257, guid: 960fbfe257d896b4f9a38909b5da7a00, type: 3}
