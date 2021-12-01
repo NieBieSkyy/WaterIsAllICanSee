@@ -6,6 +6,7 @@ public class BuildingSign : MonoBehaviour
 {
     [Header("Cameras")]
     [SerializeField] Camera mainCamera;
+    [SerializeField] Camera mainCameraForArm;
     [SerializeField] Camera secondCamera;
 
     [Header("Put here all types")]
@@ -71,6 +72,7 @@ public class BuildingSign : MonoBehaviour
         }
 
         mainCamera.gameObject.SetActive(false);
+        //mainCameraForArm.gameObject.SetActive(false);
         secondCamera.gameObject.SetActive(true);
 
     }
@@ -94,6 +96,7 @@ public class BuildingSign : MonoBehaviour
     private void CloseBuildingMenu()
     {
         mainCamera.gameObject.SetActive(true);
+        //mainCameraForArm.gameObject.SetActive(true);
         secondCamera.gameObject.SetActive(false);
 
         buildingIndex = 0;
