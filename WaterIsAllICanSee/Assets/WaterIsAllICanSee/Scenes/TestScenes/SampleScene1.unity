@@ -395,8 +395,16 @@ MonoBehaviour:
   minZ: -130
   maxZ: -90
   jibaSpeed: 3
+  scareRadius: 0
+  timeFishIsScared: 0
+  fishIsScared: 0
   isLeader: 0
   isLeaded: 0
+  leadedfish: []
+  placementChange: 0
+  xFish: 0
+  yFish: 0
+  zFish: 0
   target: {fileID: 0}
 --- !u!65 &85555144
 BoxCollider:
@@ -419,7 +427,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 85555142}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.53, y: -9.48, z: -114}
+  m_LocalPosition: {x: 6.53, y: -15.28, z: -168.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 187110254}
@@ -1259,8 +1267,16 @@ MonoBehaviour:
   minZ: -130
   maxZ: -90
   jibaSpeed: 3
+  scareRadius: 0
+  timeFishIsScared: 0
+  fishIsScared: 0
   isLeader: 0
   isLeaded: 0
+  leadedfish: []
+  placementChange: 0
+  xFish: 0
+  yFish: 0
+  zFish: 0
   target: {fileID: 0}
 --- !u!65 &556566348
 BoxCollider:
@@ -1283,7 +1299,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 556566346}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.025, y: -9.48, z: -114}
+  m_LocalPosition: {x: 3.025, y: -15.28, z: -168.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1275995826}
@@ -3935,7 +3951,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1472786448}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.94, y: -9.48, z: -113.988}
+  m_LocalPosition: {x: 4.94, y: -15.28, z: -168.36801}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1013344624}
@@ -3963,8 +3979,16 @@ MonoBehaviour:
   minZ: -130
   maxZ: -90
   jibaSpeed: 3
+  scareRadius: 0
+  timeFishIsScared: 0
+  fishIsScared: 0
   isLeader: 1
   isLeaded: 0
+  leadedfish: []
+  placementChange: 0
+  xFish: 0
+  yFish: 0
+  zFish: 0
   target: {fileID: 0}
 --- !u!65 &1472786451
 BoxCollider:

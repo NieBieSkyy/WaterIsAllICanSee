@@ -22,41 +22,58 @@ public class Jiba : MonoBehaviour
 
     [Header("Parameters")]
     [Tooltip("Really?")] [SerializeField] float jibaSpeed;
+    [Tooltip("Distance from where you can scare this smol fish")] [SerializeField] float scareRadius;
+    [SerializeField] float timeFishIsScared;
+    [SerializeField] bool fishIsScared;
 
+
+    [Header("Leadership Variables")]
     [SerializeField] bool isLeader;
     public bool isLeaded;
+    [SerializeField] List<GameObject> leadedfish;
+
+    [Header("Useful For Fish Placement")]
+    [SerializeField] float placementChange;
+    [Tooltip("Don't change this value")] [SerializeField] float xFish;
+    [Tooltip("Don't change this value")] [SerializeField] float yFish;
+    [Tooltip("Don't change this value")] [SerializeField] float zFish;
+
+    [Header("IDK but it's important I guess")]
     [SerializeField] GameObject target;
+
+    bool isSetToProperPosition;
 
     private void Start()
     {
         target = mainTarget;
         isLeaded = false;
+        isSetToProperPosition = false;
+        fishIsScared = false;
     }
 
     void Update()
     {
         if (isLeader)
         {
-            Collider[] colliders = Physics.OverlapSphere(transform.position, 6);
-            foreach (Collider collider in colliders)
-            {
-                if (collider.tag == transform.tag)
-                {
-                    collider.transform.parent = transform;
-                    
-                }
-            }
+            AddingLeadedFish();
+            SpottingDanger();
+        }
+
+        if (fishIsScared)
+        {
+            StartCoroutine(FishRun());
+            fishIsScared = false;
         }
 
         if (transform.parent)
         {
             isLeaded = true;
-            bool isSetToProperPosition = false;
             if (!isSetToProperPosition)
             {
                 isSetToProperPosition = true;
-                transform.position = transform.parent.position - new Vector3(0, 0, 1);
+                JibaFirstConfiguration();
             }
+
             Vector3 relativePos = transform.position - transform.parent.GetComponent<Jiba>().GiveTarget().transform.position;
             Quaternion quaternion = Quaternion.LookRotation(relativePos);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, quaternion, 20 * Time.deltaTime);
@@ -74,9 +91,49 @@ public class Jiba : MonoBehaviour
                 Destroy(target);
                 newTarget.name = "Target, BITCH";
                 target = newTarget;
-                
+
             }
         }
+
+    }
+    private void AddingLeadedFish()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 6);
+        foreach (Collider collider in colliders)
+        {
+            if (collider.tag == transform.tag)
+            {
+                collider.transform.parent = transform;
+            }
+        }
+    }
+
+    private void SpottingDanger()
+    {
+        Collider[] scaryColliders = Physics.OverlapSphere(transform.position, scareRadius);
+        foreach (Collider potentialDanger in scaryColliders)
+        {
+            if (potentialDanger.tag != transform.tag || potentialDanger.tag != "glony")
+            {
+                foreach (GameObject fish in leadedfish)
+                {
+                    Vector3 relativePos = transform.position - transform.parent.GetComponent<Jiba>().GiveTarget().transform.position;
+                    Quaternion quaternion = Quaternion.Inverse(Quaternion.LookRotation(relativePos));
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation, quaternion, 135 * Time.deltaTime);
+                    fishIsScared = true;
+                    fish.transform.parent = null;
+                }
+            }
+        }
+    }
+
+    private void JibaFirstConfiguration()
+    {
+        XFishConfig();
+        YFishConfig();
+        ZFishConfig();
+        transform.parent.GetComponent<Jiba>().FishAdded();
+        transform.position = transform.parent.position - SetFishPosition();
     }
 
     private void RotatingToTarget()
@@ -98,5 +155,52 @@ public class Jiba : MonoBehaviour
     public GameObject GiveTarget()
     {
         return target;
+    }
+
+    public void FishAdded()
+    {
+        leadedfish.Add(gameObject);
+    }
+
+    private Vector3 SetFishPosition()
+    {
+        float axis = Random.Range(0, 3);
+        if (axis < 1)
+        {
+            xFish += placementChange;
+        }
+        else if (axis < 2)
+        {
+            yFish += placementChange;
+        }
+        else
+        {
+            zFish += placementChange;
+        }
+
+        return new Vector3(xFish, yFish, zFish);
+    }
+
+    public float XFishConfig()
+    {
+        return xFish;
+    }
+    public float YFishConfig()
+    {
+        return yFish;
+    }
+    public float ZFishConfig()
+    {
+        return zFish;
+    }
+
+    private void RunFishRun()
+    {
+        transform.position = Vector3.forward * Time.deltaTime;
+    }
+    IEnumerator FishRun()
+    {
+        InvokeRepeating("RunFishRun", 0, timeFishIsScared);
+        yield return new WaitForSeconds(timeFishIsScared);
     }
 }

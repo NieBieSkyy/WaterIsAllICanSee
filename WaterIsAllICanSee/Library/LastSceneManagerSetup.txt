@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/WaterIsAllICanSee/Scenes/TestScenes/NewMapTest.unity
+- path: Assets/WaterIsAllICanSee/Scenes/TestScenes/SampleScene1.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
