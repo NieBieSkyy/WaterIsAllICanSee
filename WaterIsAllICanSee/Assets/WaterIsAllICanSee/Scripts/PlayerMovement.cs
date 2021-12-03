@@ -8,86 +8,68 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Parameters")]
+    [SerializeField] float playerSpeed = 2.0f;
+    [SerializeField] float jumpHeight = 1.0f;
+    [SerializeField] float gravityValue = -9.81f;
+    [SerializeField] float rotationSpeed = 1;
 
-    public CharacterController controller;
+    [Header("References")]
+    [SerializeField] InputActionReference movementControl;
+    [SerializeField] InputActionReference jumpControl;
 
-    [Header("Movement Parameters")]
-    public float speed = 12f;
+    [SerializeField] Transform cameraMainTransform;
+    CharacterController controller;
+    Vector3 playerVelocity;
+    bool groundedPlayer;
 
-    [Header("Jump Parameters")]
-    public float gravity = -10f;
-    public float jumpHeight = 2f;
-
-    [Header("Ground Things")]
-    public Transform groundCheck;
-    public float groundDistance = 0.4f;
-    [Tooltip("You have to put here what the ground layerMask is")]
-    public LayerMask groundMask;
-    
-
-    Vector3 velocity;
-    bool isGrounded;
-
-#if ENABLE_INPUT_SYSTEM
-    InputAction movement;
-    InputAction jump;
-
-    void Start()
+    private void OnEnable()
     {
-        movement = new InputAction("PlayerMovement", binding: "<Gamepad>/leftStick");
-        movement.AddCompositeBinding("Dpad")
-            .With("Up", "<Keyboard>/w")
-            .With("Up", "<Keyboard>/upArrow")
-            .With("Down", "<Keyboard>/s")
-            .With("Down", "<Keyboard>/downArrow")
-            .With("Left", "<Keyboard>/a")
-            .With("Left", "<Keyboard>/leftArrow")
-            .With("Right", "<Keyboard>/d")
-            .With("Right", "<Keyboard>/rightArrow");
-        
-        jump = new InputAction("PlayerJump", binding: "<Gamepad>/a");
-        jump.AddBinding("<Keyboard>/space");
-
-        movement.Enable();
-        jump.Enable();
+        movementControl.action.Enable();
+        jumpControl.action.Enable();
     }
-#endif
 
-    // Update is called once per frame
+    private void OnDisable()
+    {
+        movementControl.action.Disable();
+        jumpControl.action.Disable();
+    }
+    private void Start()
+    {
+        controller = gameObject.GetComponent<CharacterController>();
+        //cameraMainTransform = Camera.main.transform;
+    }
+
     void Update()
     {
-        float x;
-        float z;
-        bool jumpPressed = false;
-
-#if ENABLE_INPUT_SYSTEM
-        var delta = movement.ReadValue<Vector2>();
-        x = delta.x;
-        z = delta.y;
-        jumpPressed = Mathf.Approximately(jump.ReadValue<float>(), 1);
-#else
-        x = Input.GetAxis("Horizontal");
-        z = Input.GetAxis("Vertical");
-        jumpPressed = Input.GetButtonDown("Jump");
-#endif
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
-        if (isGrounded && velocity.y < 0)
+        groundedPlayer = controller.isGrounded;
+        if (groundedPlayer && playerVelocity.y < 0)
         {
-            velocity.y = -2f;
+            playerVelocity.y = 0f;
         }
 
-        Vector3 move = transform.right * x + transform.forward * z;
+        Vector2 movement = movementControl.action.ReadValue<Vector2>();
 
-        controller.Move(move * speed * Time.deltaTime);
+        Vector3 move = new Vector3(movement.x, 0, movement.y);
+        move = cameraMainTransform.forward * move.z + cameraMainTransform.right * move.x;
+        move.y = 0;
+        controller.Move(move * Time.deltaTime * playerSpeed);
 
-        if(jumpPressed && isGrounded)
+
+        // Changes the height position of the player..
+        if (jumpControl.action.triggered && groundedPlayer)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
 
-        velocity.y += gravity * Time.deltaTime;
+        playerVelocity.y += gravityValue * Time.deltaTime;
+        controller.Move(playerVelocity * Time.deltaTime);
 
-        controller.Move(velocity * Time.deltaTime);
+        if (movement != Vector2.zero)
+        {
+            float targetAngle = Mathf.Atan2(movement.x, movement.y) * Mathf.Rad2Deg + cameraMainTransform.eulerAngles.y;
+            Quaternion rotation = Quaternion.Euler(0, targetAngle, 0);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
+        }
     }
 }

@@ -1,1 +1,17 @@
-﻿{"cameraMode":{"drawMode":2,"name":"Shaded Wireframe","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"m_AlwaysRefresh":false,"showFog":true,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true,"showVisualEffectGraphs":true,"m_FxEnabled":true},"in2DMode":false,"pivot":{"x":42.21825408935547,"y":28.342805862426759,"z":-61.95685958862305},"rotation":{"x":-0.14877644181251527,"y":-0.5659189224243164,"z":0.10481434315443039,"w":-0.804198682308197},"size":26.18593406677246,"orthographic":false}
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+﻿{"cameraMode":{"drawMode":2,"name":"Shaded Wireframe","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"m_AlwaysRefresh":false,"showFog":true,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true,"showVisualEffectGraphs":true,"m_FxEnabled":true},"in2DMode":false,"pivot":{"x":20.559326171875,"y":41.50611114501953,"z":-73.24332427978516},"rotation":{"x":0.024730408564209939,"y":0.9216412305831909,"z":-0.05952326953411102,"w":0.3827107548713684},"size":10.256750106811524,"orthographic":false}
+=======
+﻿{"cameraMode":{"drawMode":2,"name":"Shaded Wireframe","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"m_AlwaysRefresh":false,"showFog":true,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true,"showVisualEffectGraphs":true,"m_FxEnabled":true},"in2DMode":false,"pivot":{"x":0.8362102508544922,"y":42.014015197753909,"z":-71.61930847167969},"rotation":{"x":0.1889958530664444,"y":0.38454583287239077,"z":-0.08075807243585587,"w":0.8999442458152771},"size":0.30425745248794558,"orthographic":false}
+>>>>>>> parent of 10037000 (JibaAI update)
+=======
+﻿{"cameraMode":{"drawMode":2,"name":"Shaded Wireframe","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"m_AlwaysRefresh":false,"showFog":true,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true,"showVisualEffectGraphs":true,"m_FxEnabled":true},"in2DMode":false,"pivot":{"x":0.8362102508544922,"y":42.014015197753909,"z":-71.61930847167969},"rotation":{"x":0.1889958530664444,"y":0.38454583287239077,"z":-0.08075807243585587,"w":0.8999442458152771},"size":0.30425745248794558,"orthographic":false}
+>>>>>>> parent of 10037000 (JibaAI update)
+=======
+﻿{"cameraMode":{"drawMode":2,"name":"Shaded Wireframe","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"m_AlwaysRefresh":false,"showFog":true,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true,"showVisualEffectGraphs":true,"m_FxEnabled":true},"in2DMode":false,"pivot":{"x":20.559326171875,"y":41.50611114501953,"z":-73.24332427978516},"rotation":{"x":0.024730408564209939,"y":0.9216412305831909,"z":-0.05952326953411102,"w":0.3827107548713684},"size":10.256750106811524,"orthographic":false}
+>>>>>>> parent of a4208e10 (?)
+=======
+﻿{"cameraMode":{"drawMode":2,"name":"Shaded Wireframe","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"m_AlwaysRefresh":false,"showFog":true,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true,"showVisualEffectGraphs":true,"m_FxEnabled":true},"in2DMode":false,"pivot":{"x":12.58885383605957,"y":38.7729377746582,"z":-81.82426452636719},"rotation":{"x":-0.008668537251651287,"y":0.9907239079475403,"z":-0.11192972213029862,"w":-0.07685350626707077},"size":10.256750106811524,"orthographic":false}
+>>>>>>> parent of e8baa1a1 (camMovement(+nwocb))
